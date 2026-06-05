@@ -1,0 +1,217 @@
+/* VS Code Style File Explorer */
+:root {
+    --explorer-bg: #1e1e1e;
+    --explorer-hover: #2a2d2e;
+    --explorer-active: #37373d;
+    --explorer-text: #cccccc;
+    --explorer-text-active: #ffffff;
+    --explorer-accent: #007acc;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.explorer-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: var(--explorer-bg);
+    color: var(--explorer-text);
+    font-family: var(--font-family);
+    font-size: 13px;
+    user-select: none;
+}
+
+.explorer-header {
+    padding: 10px 20px;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+}
+
+.explorer-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.explorer-actions i {
+    cursor: pointer;
+    opacity: 0.8;
+    transition: all 0.2s;
+    width: 14px;
+    height: 14px;
+}
+
+.explorer-actions i:hover {
+    opacity: 1;
+    color: var(--explorer-accent);
+    transform: scale(1.1);
+}
+
+.tree-item {
+    cursor: pointer;
+}
+
+.tree-item-content {
+    display: flex;
+    align-items: center;
+    padding: 4px 10px 4px 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+}
+
+.node-name {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.node-actions {
+    display: none;
+    gap: 6px;
+    padding-left: 10px;
+    background: inherit;
+}
+
+.tree-item-content:hover .node-actions {
+    display: flex;
+}
+
+.node-actions i {
+    width: 12px;
+    height: 12px;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+}
+
+.node-actions i:hover {
+    opacity: 1;
+    color: var(--explorer-accent);
+}
+
+.tree-item-content:hover {
+    background-color: var(--explorer-hover);
+}
+
+.tree-item.active > .tree-item-content {
+    background-color: var(--explorer-active);
+    color: var(--explorer-text-active);
+}
+
+.tree-item-content i {
+    margin-right: 6px;
+    width: 16px;
+    height: 16px;
+}
+
+.chevron {
+    margin-right: 4px;
+    transition: transform 0.2s;
+}
+
+.expanded > .tree-item-content .chevron {
+    transform: rotate(90deg);
+}
+
+.tree-children {
+    display: none;
+}
+
+.expanded > .tree-children {
+    display: block;
+}
+
+/* Modal / Picker Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #252526;
+    width: 500px;
+    max-height: 80vh;
+    border-radius: 6px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-header {
+    padding: 15px 20px;
+    border-bottom: 1px solid #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-body {
+    padding: 10px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.modal-footer {
+    padding: 15px 20px;
+    border-top: 1px solid #333;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.browse-item {
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.browse-item:hover {
+    background: #2a2d2e;
+}
+
+.browse-item i {
+    color: #007acc;
+}
+
+.btn {
+    padding: 6px 15px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.btn-primary {
+    background: #007acc;
+    color: white;
+}
+
+.btn-secondary {
+    background: #3a3d41;
+    color: white;
+}
+
+.path-input {
+    background: #3c3c3c;
+    border: 1px solid #3c3c3c;
+    color: white;
+    padding: 6px 10px;
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 2px;
+}
